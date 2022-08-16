@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="utf-8" />
+
+    <title>Welcom PCC WEB</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+
+  }
+
+  table thead th {
+      border-bottom: 5px solid #f8c304;
+      vertical-align: middle;
+      font-size: 0.8vw;
+      color: #fbfbf7;
+      background-color: cadetblue;
+  }
+  table thead th p {
+      font-size: 16px;
+      color: #333;
+  }
+  table td {
+      text-align: center;
+      font-size: 0.6vw;
+  }
+  table td:first-child {
+      text-align: left;
+  }
+  table tr:nth-last-child(-n+3) td {
+      line-height: 40px;
+      font-size: 0.7vw;
+  }
+
+
+</style>
+
+
+
+
+</head>
+<body>
+  <h3><img src="./carbon001.png" style="	width:60px;">產品碳足跡
+    <small> 整合管理 </small>
+  </h3>
+
+
+
+
+
+
+
+  <!-- 交通 -->
+  <div class="col-md-12 col-sm-12 " >
+
+
+    <div class="x_content">
+
+
+
+
+            <div class="field item form-group" style="margin-left:10%">
+
+              <label class="control-label col-md-1 col-sm-1 ">機種</label>
+
+                  <div class="col-md-8 col-sm-8">
+                    <select id="heard" class="form-control" required>
+                      <option value="">Choose..</option>
+                      <option value="test1">test1</option>
+                      <option value="test2">test2</option>
+                      <option value="test3">test3</option>
+                    </select>
+                  </div>
+
+                  <button type="button" class="btn btn-success" onclick="productSearch('heard')">查詢</button>
+
+
+
+             </div>
+
+
+
+
+
+          </div>
+
+      </div>
+      <!-- 交通 -->
+      <!-- 交通 -->
+      <div class="col-md-12 col-sm-12 ">
+
+
+        <div class="x_content">
+
+
+
+
+                <div class="field item form-group" style="margin-left:10%">
+                    <div class="col-md-8 col-sm-8">
+
+                    <table id="material" class="table table-striped table-bordered dataTable no-footer dtr-inline" style="width:100%;float:left;text-align:center;">
+                        <thead style="background-color:#5F9EA0;color:white">
+                          <tr>
+                            <th style="color:white">品項</th>
+                            <th style="color:white">TYPE</th>
+                            <th style="color:white">說明</th>
+                            <th style="color:white">重量(Kg)</th>
+                            <th style="color:white">碳排放量</th>
+                            <th style="color:white">備註</th>
+                          </tr>
+
+                        </thead>
+                        <tbody id="material_tbody">
+                      </tbody>
+                   </table>
+                   </div>
+
+                 </div>
+
+
+
+
+
+              </div>
+
+          </div>
+          <!-- 交通 -->
+
+
+
+
+
+
+
+
+
+
+<script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  function productSearch(id){
+      var item = []
+      item.push({item:'test1',carbon_val:10,type:'食物',weight:10})
+      item.push({item:'test2',carbon_val:10,type:'食物',weight:10})
+      item.push({item:'test3',carbon_val:10,type:'食物',weight:10})
+
+
+      var table = document.getElementById('material');
+      var tbody = document.getElementById('material_tbody');
+      var partnumber_user_key = document.getElementById(id);
+      var tr = document.createElement('tr');
+
+
+      for(var i=0;i<item.length;i++){
+
+        var td = document.createElement('td');
+        if(item[i].item==partnumber_user_key.value){
+            console.log(item[i].item)
+          for(var j=0;j<6;j++){
+            if(j==0){
+              var td = document.createElement('td');
+              td.innerText = item[i].item
+            }
+            if(j==1){
+              var td = document.createElement('td');
+              td.innerText = item[i].type
+            }
+            if(j==2){
+              var td = document.createElement('td');
+              td.innerText = '-'
+            }
+            if(j==3){
+              var td = document.createElement('td');
+              td.innerText = item[i].weight
+            }
+            if(j==4){
+              var td = document.createElement('td');
+              td.innerText = item[i].carbon_val
+            }
+
+            if(j==5){
+              var td = document.createElement('td');
+              td.innerText = '-'
+            }
+
+              tr.appendChild(td);
+          }
+
+              tbody.appendChild(tr)
+        }
+      }
+
+
+
+
+  }
+</script>
+</body>
+</html>
