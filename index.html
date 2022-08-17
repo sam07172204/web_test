@@ -79,7 +79,7 @@
 
   .cont-checkbox {
     width: 100px;
-    height: 100px;
+    height: 80px;
     border-radius: var(--border-radius);
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
     background: white;
@@ -196,7 +196,7 @@
       <div class="cont-title">可樂罐</div>
       <div class="cont-main">
         <div class="cont-checkbox">
-          <input type="checkbox" id="myCheckbox-1" />
+          <input class="checkbox" type="checkbox" id="myCheckbox-1"  value="鐵罐" onchange="toggleImage(this)" />
           <label for="myCheckbox-1">
             <img
               src="./carbon001.png"
@@ -211,7 +211,7 @@
         </div>
 
         <div class="cont-checkbox">
-          <input type="checkbox" id="myCheckbox-2" />
+          <input class="checkbox" type="checkbox" id="myCheckbox-2" value="鋁罐"  onchange="toggleImage(this)" />
           <label for="myCheckbox-2">
             <img
               src="./carbon001.png"
@@ -226,7 +226,7 @@
         </div>
 
         <div class="cont-checkbox">
-          <input type="checkbox" id="myCheckbox-3" />
+          <input name="checkbox" type="checkbox" id="myCheckbox-3" value="玻璃罐"  onchange="toggleImage(this)" />
           <label for="myCheckbox-3">
             <img
               src="./carbon001.png"
@@ -246,7 +246,7 @@
       <div class="cont-title">PCB</div>
       <div class="cont-main">
         <div class="cont-checkbox">
-          <input type="checkbox" id="myCheckbox-4" />
+          <input name="checkbox" type="checkbox" id="myCheckbox-4" value="PCB_A"   onchange="toggleImage(this)" />
           <label for="myCheckbox-4">
             <img
               src="./carbon001.png"
@@ -261,7 +261,7 @@
         </div>
 
         <div class="cont-checkbox">
-          <input type="checkbox" id="myCheckbox-5" />
+          <input name="checkbox" type="checkbox" id="myCheckbox-5"  value="PCB_B"  onchange="toggleImage(this)" />
           <label for="myCheckbox-5">
             <img
               src="./carbon001.png"
@@ -276,7 +276,7 @@
         </div>
 
         <div class="cont-checkbox">
-          <input type="checkbox" id="myCheckbox-6" />
+          <input name="checkbox" type="checkbox" id="myCheckbox-6"  value="PCB_C"   onchange="toggleImage(this)" />
           <label for="myCheckbox-6">
             <img
               src="./carbon001.png"
@@ -292,6 +292,57 @@
 
       </div>
       <!-- 組別2 -->
+
+      <!-- 組別3 -->
+      <div class="cont-title">iphone</div>
+      <div class="cont-main">
+        <div class="cont-checkbox">
+          <input name="checkbox" type="checkbox" id="myCheckbox-7" value="iphone"    onchange="toggleImage(this)" />
+          <label for="myCheckbox-7">
+            <img
+              src="./carbon001.png"
+            />
+            <span class="cover-checkbox">
+              <svg viewBox="0 0 12 10">
+                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+              </svg>
+            </span>
+            <div class="info">iphone </div>
+          </label>
+        </div>
+
+        <div class="cont-checkbox">
+          <input name="checkbox" type="checkbox" id="myCheckbox-8" value="iphone_pro"  onchange ="toggleImage(this)" />
+          <label for="myCheckbox-8">
+            <img
+              src="./carbon001.png"
+            />
+            <span class="cover-checkbox">
+              <svg viewBox="0 0 12 10">
+                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+              </svg>
+            </span>
+            <div class="info">iphone pro </div>
+          </label>
+        </div>
+
+        <div class="cont-checkbox">
+          <input name="checkbox" type="checkbox" id="myCheckbox-9" value="iphone_pro_max" onchange="toggleImage(this)" />
+          <label for="myCheckbox-9">
+            <img
+              src="./carbon001.png"
+            />
+            <span class="cover-checkbox">
+              <svg viewBox="0 0 12 10">
+                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+              </svg>
+            </span>
+            <div class="info">iphone pro max</div>
+          </label>
+        </div>
+
+      </div>
+      <!-- 組別3 -->
 
     </div>
 
@@ -347,66 +398,97 @@
 
 
 <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 
 
-  function productSearch(id){
+  function productSearch(list){
+    console.log(list)
       var item = []
-      item.push({item:'test1',carbon_val:10,type:'食物',weight:10})
-      item.push({item:'test2',carbon_val:10,type:'食物',weight:10})
-      item.push({item:'test3',carbon_val:10,type:'食物',weight:10})
+      item.push({item:'鐵罐',carbon_val:1,type:'食物',weight:10})
+      item.push({item:'鋁罐',carbon_val:2,type:'食物',weight:10})
+      item.push({item:'玻璃罐',carbon_val:3,type:'食物',weight:10})
+      item.push({item:'PCB_A',carbon_val:4,type:'食物',weight:10})
+      item.push({item:'PCB_B',carbon_val:5,type:'食物',weight:10})
+      item.push({item:'PCB_C',carbon_val:6,type:'食物',weight:10})
+      item.push({item:'iphone',carbon_val:7,type:'食物',weight:10})
+      item.push({item:'iphone_pro',carbon_val:8,type:'食物',weight:10})
+      item.push({item:'iphone_pro_max',carbon_val:9,type:'食物',weight:10})
 
 
       var table = document.getElementById('material');
       var tbody = document.getElementById('material_tbody');
-      var partnumber_user_key = document.getElementById(id);
-      var tr = document.createElement('tr');
+      tbody.innerText =''
+      // var partnumber_user_key = document.getElementById(id);
 
 
-      for(var i=0;i<item.length;i++){
+      for(var k=0;k<list.length;k++){
+        // console.log(list[k])
+          var tr = document.createElement('tr');
+          for(var i=0;i<item.length;i++){
 
-        var td = document.createElement('td');
-        if(item[i].item==partnumber_user_key.value){
-            console.log(item[i].item)
-          for(var j=0;j<6;j++){
-            if(j==0){
-              var td = document.createElement('td');
-              td.innerText = item[i].item
-            }
-            if(j==1){
-              var td = document.createElement('td');
-              td.innerText = item[i].type
-            }
-            if(j==2){
-              var td = document.createElement('td');
-              td.innerText = '-'
-            }
-            if(j==3){
-              var td = document.createElement('td');
-              td.innerText = item[i].weight
-            }
-            if(j==4){
-              var td = document.createElement('td');
-              td.innerText = item[i].carbon_val
-            }
+              if(item[i].item==list[k]){
+                  // console.log(item[i].item)
+                for(var j=0;j<6;j++){
+                  if(j==0){
+                    var td = document.createElement('td');
+                    td.innerText = item[i].item
+                  }
+                  if(j==1){
+                    var td = document.createElement('td');
+                    td.innerText = item[i].type
+                  }
+                  if(j==2){
+                    var td = document.createElement('td');
+                    td.innerText = '-'
+                  }
+                  if(j==3){
+                    var td = document.createElement('td');
+                    td.innerText = item[i].weight
+                  }
+                  if(j==4){
+                    var td = document.createElement('td');
+                    td.innerText = item[i].carbon_val
+                  }
 
-            if(j==5){
-              var td = document.createElement('td');
-              td.innerText = '-'
-            }
+                  if(j==5){
+                    var td = document.createElement('td');
+                    td.innerText = '-'
+                  }
 
-              tr.appendChild(td);
+                    tr.appendChild(td);
+                }
+
+                    tbody.appendChild(tr)
+              }
+            }
           }
-
-              tbody.appendChild(tr)
-        }
-      }
-
-
 
 
   }
+
+  var list = [];
+  function toggleImage(obj){
+
+
+      if($(obj).prop("checked")) {
+        // console.log(obj.value)
+        list.push(obj.value)
+
+      }else{
+        // console.log(obj.value)
+        for(var i=0;i<list.length;i++){
+          if(obj.value==list[i]){
+              list.splice(i,1);
+          }
+        }
+      }
+      productSearch(list)
+    }
+
+
+
+
 </script>
 </body>
 </html>
