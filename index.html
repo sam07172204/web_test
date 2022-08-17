@@ -78,8 +78,8 @@
   }
 
   .cont-checkbox {
-    width: 100px;
-    height: 80px;
+    width: 80px;
+    height: 70px;
     border-radius: var(--border-radius);
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
     background: white;
@@ -343,6 +343,106 @@
 
       </div>
       <!-- 組別3 -->
+      <!-- 組別4 -->
+      <div class="cont-title">邊框</div>
+      <div class="cont-main">
+        <div class="cont-checkbox">
+          <input name="checkbox" type="checkbox" id="myCheckbox-10" value="邊框_1"    onchange="toggleImage(this)" />
+          <label for="myCheckbox-10">
+            <img
+              src="./carbon001.png"
+            />
+            <span class="cover-checkbox">
+              <svg viewBox="0 0 12 10">
+                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+              </svg>
+            </span>
+            <div class="info">邊框_1 </div>
+          </label>
+        </div>
+
+        <div class="cont-checkbox">
+          <input name="checkbox" type="checkbox" id="myCheckbox-11" value="邊框_2"  onchange ="toggleImage(this)" />
+          <label for="myCheckbox-11">
+            <img
+              src="./carbon001.png"
+            />
+            <span class="cover-checkbox">
+              <svg viewBox="0 0 12 10">
+                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+              </svg>
+            </span>
+            <div class="info">邊框_2</div>
+          </label>
+        </div>
+
+        <div class="cont-checkbox">
+          <input name="checkbox" type="checkbox" id="myCheckbox-12" value="邊框_3" onchange="toggleImage(this)" />
+          <label for="myCheckbox-12">
+            <img
+              src="./carbon001.png"
+            />
+            <span class="cover-checkbox">
+              <svg viewBox="0 0 12 10">
+                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+              </svg>
+            </span>
+            <div class="info">邊框_3</div>
+          </label>
+        </div>
+
+      </div>
+      <!-- 組別4 -->
+      <!-- 組別3 -->
+      <div class="cont-title">A</div>
+      <div class="cont-main">
+        <div class="cont-checkbox">
+          <input name="checkbox" type="checkbox" id="myCheckbox-13" value="A"    onchange="toggleImage(this)" />
+          <label for="myCheckbox-13">
+            <img
+              src="./carbon001.png"
+            />
+            <span class="cover-checkbox">
+              <svg viewBox="0 0 12 10">
+                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+              </svg>
+            </span>
+            <div class="info">A </div>
+          </label>
+        </div>
+
+        <div class="cont-checkbox">
+          <input name="checkbox" type="checkbox" id="myCheckbox-14" value="B"  onchange ="toggleImage(this)" />
+          <label for="myCheckbox-14">
+            <img
+              src="./carbon001.png"
+            />
+            <span class="cover-checkbox">
+              <svg viewBox="0 0 12 10">
+                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+              </svg>
+            </span>
+            <div class="info">B</div>
+          </label>
+        </div>
+
+        <div class="cont-checkbox">
+          <input name="checkbox" type="checkbox" id="myCheckbox-15" value="C" onchange="toggleImage(this)" />
+          <label for="myCheckbox-15">
+            <img
+              src="./carbon001.png"
+            />
+            <span class="cover-checkbox">
+              <svg viewBox="0 0 12 10">
+                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+              </svg>
+            </span>
+            <div class="info">C</div>
+          </label>
+        </div>
+
+      </div>
+      <!-- 組別3 -->
 
     </div>
 
@@ -408,12 +508,18 @@
       item.push({item:'鐵罐',carbon_val:1,type:'食物',weight:10})
       item.push({item:'鋁罐',carbon_val:2,type:'食物',weight:10})
       item.push({item:'玻璃罐',carbon_val:3,type:'食物',weight:10})
-      item.push({item:'PCB_A',carbon_val:4,type:'食物',weight:10})
-      item.push({item:'PCB_B',carbon_val:5,type:'食物',weight:10})
-      item.push({item:'PCB_C',carbon_val:6,type:'食物',weight:10})
-      item.push({item:'iphone',carbon_val:7,type:'食物',weight:10})
-      item.push({item:'iphone_pro',carbon_val:8,type:'食物',weight:10})
-      item.push({item:'iphone_pro_max',carbon_val:9,type:'食物',weight:10})
+      item.push({item:'PCB_A',carbon_val:4,type:'PCB',weight:10})
+      item.push({item:'PCB_B',carbon_val:5,type:'PCB',weight:10})
+      item.push({item:'PCB_C',carbon_val:6,type:'PCB',weight:10})
+      item.push({item:'iphone',carbon_val:7,type:'手機',weight:10})
+      item.push({item:'iphone_pro',carbon_val:8,type:'手機',weight:10})
+      item.push({item:'iphone_pro_max',carbon_val:9,type:'手機',weight:10})
+      item.push({item:'邊框_1',carbon_val:7,type:'邊框',weight:10})
+      item.push({item:'邊框_2',carbon_val:8,type:'邊框',weight:10})
+      item.push({item:'邊框_3',carbon_val:9,type:'邊框',weight:10})
+      item.push({item:'A',carbon_val:7,type:'A',weight:1})
+      item.push({item:'B',carbon_val:8,type:'A',weight:1})
+      item.push({item:'C',carbon_val:9,type:'A',weight:1})
 
 
       var table = document.getElementById('material');
